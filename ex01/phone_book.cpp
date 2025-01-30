@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   phone_book.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 12:06:52 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/01/30 12:50:24 by jdhallen         ###   ########.fr       */
+/*   Created: 2025/01/30 12:41:16 by jdhallen          #+#    #+#             */
+/*   Updated: 2025/01/30 14:06:10 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cctype>
+#include "phone_book.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	int	i = 1;
-	int	j = 0;
 	
-	if (argc < 2)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			std::cout << (char)std::toupper(argv[i][j]);
-			j++;
-		}
-		i++;
-		if (i < argc)
-			std::cout << " ";
-	}
-	std::cout << std::endl;
-	return (0);
 }
