@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:06:19 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/02/24 18:36:46 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/02/25 15:00:33 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,33 +68,41 @@ void	search_func(PhoneBook *phonebook)
 	int			result;
 	
 	ft_printf_search(phonebook);
+	std::cout << "ENTER CONTACT INDEX : ";
 	std::getline(std::cin, str);
-	if (!str.empty() && std::find_if(str.begin(), str.end(), [](char c) { return !std::isdigit(c); }) == str.end())
+	for (int i = 0; str[i] != '\0'; i++)
+	{
+		if (!(str[i] >= '0' && str[i] <= '9'))
+		{
+			std::cout << "\033[34mERROR : WRONG CHAR\033[0m" << std::endl;
+			return ;
+		}
+	}
 	result = atoi(str.c_str());
 	if (result < 8 && result > -1)
 		phonebook->contact[result].display();
 	else
-		std::cout << "PhoneBook is not able to have this input" << std::endl;
+		std::cout << "\033[34mERROR : INCORRECT INPUT\033[0m" << std::endl;
 }
 
 int main(void)
 {
 	PhoneBook	phonebook;
 	std::string	str;
-	// std::string	add = "ADD";
-	// std::string search = "SEARCH";
-	// std::string exit = "EXIT";
-	// int 	count;
-	
+
 	phonebook.contactCount = 0;
 	while (1)
 	{
 		std::getline(std::cin, str);
-		if (str == "ADD")
+		if (str == "")
+			std::cout << "\033[F";
+		else if (str == "ADD")
 			add_func(&phonebook);
-		if (str == "SEARCH")
+		else if (str == "SEARCH")
 			search_func(&phonebook);
-		if (str == "EXIT")
+		else if (str == "EXIT")
 			break ;
+		else
+			std::cout << "\033[F\033[J";
 	}
 }

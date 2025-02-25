@@ -6,7 +6,7 @@
 /*   By: jdhallen <jdhallen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 13:56:10 by jdhallen          #+#    #+#             */
-/*   Updated: 2025/02/24 18:36:06 by jdhallen         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:55:01 by jdhallen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@
 # include <iomanip>
 # include <cctype>
 # include <cstdlib>
-#include <algorithm>
 
 class Contact {
 private :
 	std::string phone_number;
 	std::string darkest_secret;
-
 public :
 	std::string first_name;
 	std::string last_name;
@@ -41,6 +39,7 @@ public :
 		std::getline(std::cin, phone_number);
 		std::cout << "Enter darkest secret: ";
 		std::getline(std::cin, darkest_secret);
+		// std::cout << std::endl;	
 	}
 	
 	void display() const {
